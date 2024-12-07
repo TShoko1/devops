@@ -5,7 +5,7 @@ app = Flask(__name__)
 # Обработчик для маршрута /livnes
 @app.route('/liveness', methods=['GET', 'POST'])
 def livnes():
-    return jsonify({"message": "Liveness handler reached."}), 200
+    return jsonify({"message": "Is it Livness handler reached."}), 200
 
 # Обработчик для маршрута /rightness
 @app.route('/readiness', methods=['GET', 'POST'])
