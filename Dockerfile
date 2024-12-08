@@ -12,7 +12,7 @@ COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Указываем, что приложение использует порт 80 (если это необходимо для окружения)
-EXPOSE 80
+EXPOSE 8080
 
 # Команда для запуска бота
 CMD ["python", "main.py"]
