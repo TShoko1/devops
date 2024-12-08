@@ -13,5 +13,4 @@ def rightness():
     return jsonify({"message": "Readiness handler reached."}), 200
 
 if __name__ == '__main__':
-    # Запуск приложения на localhost:5000
-    app.run(debug=True, port=80)
+    app.run(debug=True, port=8080)
