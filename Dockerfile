@@ -1,18 +1,16 @@
-# Используем официальный образ Python
-FROM python:3.10-slim
+FROM python:3.11-slim
 
+WORKDIR /code
 
-# Устанавливаем рабочую директорию внутри контейнера
-WORKDIR /app
+COPY ./requirements.txt /code/requirements.txt
 
-# Копируем файлы проекта в контейнер
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
 COPY . .
 
-# Устанавливаем зависимости
-RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 5000
 
-# Указываем, что приложение использует порт 80 (если это необходимо для окружения)
-EXPOSE 80
+ENV FLASK_APP=main.py
+ENV FLASK_ENV=development
 
-# Команда для запуска бота
-CMD ["python", "main.py"]
+CMD ["flask", "run", "--host=0.0.0.0"]
