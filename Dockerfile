@@ -8,6 +8,9 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY . .
 
+RUN bandit ./main.py
+RUN pylint ./main.py
+
 EXPOSE 5000
 
 ENV FLASK_APP=main.py
